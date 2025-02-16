@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file
+   path="simulation/submodules/altera_onchip_flash_util.v"
+   type="VERILOG"
+   library="onchip_flash_0" />
+ <file
+   path="simulation/submodules/altera_onchip_flash.v"
+   type="VERILOG"
+   library="onchip_flash_0" />
+ <file
+   path="simulation/submodules/altera_onchip_flash_avmm_data_controller.v"
+   type="VERILOG"
+   library="onchip_flash_0" />
+ <file path="simulation/max10flash.v" type="VERILOG" />
+ <topLevel name="max10flash" />
+ <deviceFamily name="max10" />
+ <modelMap
+   controllerPath="max10flash.onchip_flash_0"
+   modelPath="max10flash.onchip_flash_0" />
+</simPackage>

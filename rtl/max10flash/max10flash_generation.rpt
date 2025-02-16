@@ -1,0 +1,64 @@
+Info: Starting: Create simulation model
+Info: qsys-generate /home/greg/dev/fpga/max10/picomax/max10flash.qsys --simulation=VERILOG --allow-mixed-language-simulation --output-directory=/home/greg/dev/fpga/max10/picomax/max10flash/simulation --family="MAX 10" --part=10M08SAU169C8G
+Progress: Loading picomax/max10flash.qsys
+Progress: Reading input file
+Progress: Adding onchip_flash_0 [altera_onchip_flash 23.1]
+Progress: Parameterizing module onchip_flash_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: max10flash: Generating max10flash "max10flash" for SIM_VERILOG
+Info: onchip_flash_0: "max10flash" instantiated altera_onchip_flash "onchip_flash_0"
+Info: max10flash: Done "max10flash" with 2 modules, 4 files
+Info: qsys-generate succeeded.
+Info: Finished: Create simulation model
+Info: Starting: Create Modelsim Project.
+Info: sim-script-gen --spd=/home/greg/dev/fpga/max10/picomax/max10flash/max10flash.spd --output-directory=/home/greg/dev/fpga/max10/picomax/max10flash/simulation/ --use-relative-paths=true
+Info: Doing: ip-make-simscript --spd=/home/greg/dev/fpga/max10/picomax/max10flash/max10flash.spd --output-directory=/home/greg/dev/fpga/max10/picomax/max10flash/simulation/ --use-relative-paths=true
+Info: Generating the following file(s) for VCSMX simulator in /home/greg/dev/fpga/max10/picomax/max10flash/simulation/ directory:
+Info: 	synopsys/vcsmx/synopsys_sim.setup
+Info: 	synopsys/vcsmx/vcsmx_setup.sh
+Info: Generating the following file(s) for VCS simulator in /home/greg/dev/fpga/max10/picomax/max10flash/simulation/ directory:
+Info: 	synopsys/vcs/vcs_setup.sh
+Info: Generating the following file(s) for RIVIERA simulator in /home/greg/dev/fpga/max10/picomax/max10flash/simulation/ directory:
+Info: 	aldec/rivierapro_setup.tcl
+Info: Generating the following file(s) for XCELIUM simulator in /home/greg/dev/fpga/max10/picomax/max10flash/simulation/ directory:
+Info: 	xcelium/cds.lib
+Info: 	xcelium/hdl.var
+Info: 	xcelium/xcelium_setup.sh
+Info: 	1 .cds.lib files in xcelium/cds_libs/ directory
+Info: Generating the following file(s) for MODELSIM simulator in /home/greg/dev/fpga/max10/picomax/max10flash/simulation/ directory:
+Info: 	mentor/msim_setup.tcl
+Info: For information on how to simulate your IP, see the explanatory comments in the simulator-specific subdirectories under /home/greg/dev/fpga/max10/picomax/max10flash/simulation/.
+Info: Regenerate these scripts whenever you make any change to any Quartus-generated IP in your project.
+Info: Finished: Create Modelsim Project.
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate /home/greg/dev/fpga/max10/picomax/max10flash.qsys --block-symbol-file --output-directory=/home/greg/dev/fpga/max10/picomax/max10flash --family="MAX 10" --part=10M08SAU169C8G
+Progress: Loading picomax/max10flash.qsys
+Progress: Reading input file
+Progress: Adding onchip_flash_0 [altera_onchip_flash 23.1]
+Progress: Parameterizing module onchip_flash_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate /home/greg/dev/fpga/max10/picomax/max10flash.qsys --synthesis=VERILOG --output-directory=/home/greg/dev/fpga/max10/picomax/max10flash/synthesis --family="MAX 10" --part=10M08SAU169C8G
+Progress: Loading picomax/max10flash.qsys
+Progress: Reading input file
+Progress: Adding onchip_flash_0 [altera_onchip_flash 23.1]
+Progress: Parameterizing module onchip_flash_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: max10flash: Generating max10flash "max10flash" for QUARTUS_SYNTH
+Info: onchip_flash_0: Generating top-level entity altera_onchip_flash
+Info: onchip_flash_0: "max10flash" instantiated altera_onchip_flash "onchip_flash_0"
+Info: max10flash: Done "max10flash" with 2 modules, 5 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis
