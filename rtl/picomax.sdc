@@ -39,7 +39,7 @@ set_time_format -unit ns -decimal_places 3
 # Create Clock
 #**************************************************************
 
-create_clock -name {clk} -period 83.333 -waveform { 0.000 41.666 } [get_ports {clk}]
+create_clock -name {clk} -period 20.000 -waveform { 0.000 10.000 } [get_ports {clk}]
 create_generated_clock -name flash_se_neg_reg -divide_by 2 -source [get_ports {clk}] [get_registers {picosoc:soc|max10flash:u0|altera_onchip_flash:onchip_flash_0|altera_onchip_flash_avmm_data_controller:avmm_data_controller|flash_se_neg_reg}]
 
 

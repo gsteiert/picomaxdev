@@ -1,0 +1,101 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 2023  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and any partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel FPGA IP License Agreement, or other applicable license
+# agreement, including, without limitation, that your use is for
+# the sole purpose of programming logic devices manufactured by
+# Intel and sold by Intel or its authorized distributors.  Please
+# refer to the applicable agreement for further details, at
+# https://fpgasoftware.intel.com/eula.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+# Date created = 07:24:32  February 08, 2025
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		picomax_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Intel recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus Prime software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "MAX 10"
+set_global_assignment -name DEVICE 10M08SAE144C8G
+set_global_assignment -name TOP_LEVEL_ENTITY picomax
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 23.1STD.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "07:24:32  FEBRUARY 08, 2025"
+set_global_assignment -name LAST_QUARTUS_VERSION "23.1std.0 Lite Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name DEVICE_FILTER_PACKAGE UFBGA
+set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 8
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name FLOW_ENABLE_POWER_ANALYZER ON
+set_global_assignment -name POWER_DEFAULT_INPUT_IO_TOGGLE_RATE "12.5 %"
+set_global_assignment -name ENABLE_OCT_DONE OFF
+set_global_assignment -name EXTERNAL_FLASH_FALLBACK_ADDRESS 00000000
+set_global_assignment -name USE_CONFIGURATION_DEVICE OFF
+set_global_assignment -name INTERNAL_FLASH_UPDATE_MODE "DUAL IMAGES"
+set_global_assignment -name CRC_ERROR_OPEN_DRAIN OFF
+set_global_assignment -name GENERATE_SVF_FILE ON
+set_global_assignment -name GENERATE_JAM_FILE ON
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS_WEAK_PULLUP "AS INPUT TRI-STATED"
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_location_assignment PIN_27 -to clk
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to clk
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to led0
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ser_tx
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to led1
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to led2
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to led3
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to led4
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to led5
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to led6
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to led7
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ser_rx
+set_location_assignment PIN_132 -to led0
+set_location_assignment PIN_134 -to led1
+set_location_assignment PIN_135 -to led2
+set_location_assignment PIN_140 -to led3
+set_location_assignment PIN_141 -to led4
+set_location_assignment PIN_114 -to led5
+set_location_assignment PIN_118 -to led6
+set_location_assignment PIN_119 -to led7
+set_location_assignment PIN_74 -to ser_rx
+set_location_assignment PIN_75 -to ser_tx
+set_global_assignment -name SDC_FILE picomax.sdc
+set_global_assignment -name VERILOG_FILE picomax.v
+set_global_assignment -name QIP_FILE max10flash/synthesis/max10flash.qip
+set_global_assignment -name VERILOG_FILE simpleuart.v
+set_global_assignment -name VERILOG_FILE picosoc.v
+set_global_assignment -name VERILOG_FILE picorv32.v
+set_location_assignment PIN_121 -to user
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to user
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

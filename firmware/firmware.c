@@ -20,10 +20,14 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-#ifdef MAX10M08
-#  define MEM_TOTAL 0x4000 /* 32 KB */
-#elif MAX10M04
-#  define MEM_TOTAL 0x4000 /* 32 KB */
+#ifdef MAX1000
+#  define MEM_TOTAL 0x4000   /* 32 KB */
+#  define CLK_SPEED 12000000 /* 12MHz */
+#  define BAUD_DIV  104      /* 12MHz / 115200 */
+#elif MAX10M08EVK
+#  define MEM_TOTAL 0x4000   /* 32 KB */
+#  define CLK_SPEED 50000000 /* 50MHz */
+#  define BAUD_DIV  434      /* 50MHz / 115200 */
 #else
 #  error "Set -DMAX10M__ when compiling firmware.c"
 #endif
@@ -116,7 +120,7 @@ char getchar_prompt(char *prompt)
 	while (c == -1) {
 		__asm__ volatile ("rdcycle %0" : "=r"(cycles_now));
 		cycles = cycles_now - cycles_begin;
-		if (cycles > 12000000) {
+		if (cycles > CLK_SPEED) {
 			if (prompt)
 				print(prompt);
 			cycles_begin = cycles_now;
@@ -271,7 +275,7 @@ void cmd_echo()
 void main()
 {
 	reg_leds = 31;
-	reg_uart_clkdiv = 104;
+	reg_uart_clkdiv = BAUD_DIV ;
 	print("Booting..\n");
 
 	reg_leds = 127;
