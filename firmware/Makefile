@@ -42,7 +42,7 @@ max10m08evk_fw.hex: max10m08evk_fw.elf
 	$(CROSS)objcopy -O ihex max10m08evk_fw.elf max10m08evk_fw.hex
 
 max10m08evk_fw.bin: max10m08evk_fw.elf
-	$(CROSS)objcopy -O binary max10m08evk_fw.elf amax10m08evk_fw.bin
+	$(CROSS)objcopy -O binary max10m08evk_fw.elf max10m08evk_fw.bin
 
 # ---- Clean ----
 

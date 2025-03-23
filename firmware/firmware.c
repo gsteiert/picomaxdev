@@ -32,6 +32,9 @@
 #  error "Set -DMAX10M__ when compiling firmware.c"
 #endif
 
+// Define alternate LED pattern
+#define ROTATE_LEDS
+
 // a pointer to this is a null pointer, but the compiler does not
 // know that because "sram" is a linker symbol from sections.lds.
 extern uint32_t sram;
@@ -112,7 +115,11 @@ char getchar_prompt(char *prompt)
 	uint32_t cycles_begin, cycles_now, cycles;
 	__asm__ volatile ("rdcycle %0" : "=r"(cycles_begin));
 
+#ifdef ROTATE_LEDS
+    reg_leds = 0x11111111;
+#else
 	reg_leds = ~0;
+#endif
 
 	if (prompt)
 		print(prompt);
@@ -124,7 +131,11 @@ char getchar_prompt(char *prompt)
 			if (prompt)
 				print(prompt);
 			cycles_begin = cycles_now;
+#ifdef ROTATE_LEDS
+            reg_leds = (reg_leds << 1) | (reg_leds >> 31);
+#else
 			reg_leds = ~reg_leds;
+#endif
 		}
 		c = reg_uart_data;
 	}
