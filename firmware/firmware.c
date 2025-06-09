@@ -289,9 +289,6 @@ void main()
 	reg_uart_clkdiv = BAUD_DIV ;
 	print("Booting..\n");
 
-	reg_leds = 127;
-	while (getchar_prompt("Press ENTER to continue..\n") != '\r') { /* wait */ }
-
 	print("\n");
 	print("  ____  _          ____         ____\n");
 	print(" |  _ \\(_) ___ ___/ ___|  ___  / ___|\n");
@@ -305,7 +302,9 @@ void main()
 	print(" KiB\n");
 	print("\n");
 
-	//cmd_memtest(); // test overwrites bss and data memory
+	reg_leds = 127;
+	while (getchar_prompt("Press ENTER to continue..\n") != '\r') { /* wait */ }
+
 	print("\n");
 
 	while (1)
