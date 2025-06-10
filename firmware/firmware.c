@@ -33,7 +33,7 @@
 #endif
 
 // Define alternate LED pattern
-#define ROTATE_LEDS
+//#define TEARDOWN
 
 // a pointer to this is a null pointer, but the compiler does not
 // know that because "sram" is a linker symbol from sections.lds.
@@ -115,7 +115,7 @@ char getchar_prompt(char *prompt)
 	uint32_t cycles_begin, cycles_now, cycles;
 	__asm__ volatile ("rdcycle %0" : "=r"(cycles_begin));
 
-#ifdef ROTATE_LEDS
+#ifdef TEARDOWN
     reg_leds = 0x11111111;
 #else
 	reg_leds = ~0;
@@ -131,7 +131,7 @@ char getchar_prompt(char *prompt)
 			if (prompt)
 				print(prompt);
 			cycles_begin = cycles_now;
-#ifdef ROTATE_LEDS
+#ifdef TEARDOWN
             reg_leds = (reg_leds << 1) | (reg_leds >> 31);
 #else
 			reg_leds = ~reg_leds;
@@ -296,7 +296,15 @@ void main()
 	print(" |  __/| | (_| (_) |__) | (_) | |___\n");
 	print(" |_|   |_|\\___\\___/____/ \\___/ \\____|\n");
 	print("\n");
-
+#ifdef TEARDOWN
+	print("  _____ ____   _   ____  ____   ___  _   _ _   _ \n");
+	print(" |_   _|  __| / \\ |  _ \\|  _ \\ / _ \\| |_| | \\ | |\n");
+	print("   | | | |_  / ^ \\| |_| | | | | | | | | | |  \\| |\n");
+	print("   | | |  _|| |_| |    /| | | | | | |     |     |\n");
+	print("   | | | |__|  _  | |\\ \\| |_| | |_| |  |  | |\\  |\n");
+	print("   |_| |____|_| |_|_| \\_|____/ \\___/ \\/ \\/|_| \\_|\n");
+	print("\n");
+#endif
 	print("Total memory: ");
 	print_dec(MEM_TOTAL / 1024);
 	print(" KiB\n");
