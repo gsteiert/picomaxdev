@@ -1,7 +1,7 @@
 # PicoMAXdev
 Development of PicoRV32 on MAX10 using UFM
 
-This project is a basic simple PicoRV32 SoC implementation for the Altera MAX10 FPGA using the User Flash Memory (UFM) for code storage.
+This project is a basic simple [PicoRV32 SoC](https://github.com/YosysHQ/picorv32) implementation for the Altera MAX10 FPGA using the User Flash Memory (UFM) for code storage.
 
 ![Memory Map Block Diagram](./img/memory-map.drawio.png)
 
@@ -28,4 +28,20 @@ This implementation uses RTL infered block memory for the RAM
 
 A single 32 bit GPO register is connected to up to 8 LEDs depending on the target board.
 
+## Building Firmware
 
+This project uses a basic makefile for building.  You will need a RISC-V toolchain.  The PicoRV32 project has [instructions for building a complete RISC-V toolchain](https://github.com/YosysHQ/picorv32?tab=readme-ov-file#building-a-pure-rv32i-toolchain) if you do not have one already.
+
+Run this command from the firmware directory to build the firmware for the MAX10 10M08 Evaluation Kit:
+```
+make max10m08evk_fw.bin
+```
+
+## Building FPGA Image
+
+Quartus project files are provided in the rtl directory for the following boards:
+
+* MAX10 10M08 Evaluation Kit:  picomax10m08evk.qsf
+* MAX1000 board:  picomax1000.qsf
+
+Open the file with Quartus Prime Lite to build the FPGA image.
